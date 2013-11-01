@@ -32,6 +32,6 @@ CREATE TABLE profiles
      UNIQUE (site_id)
      );
 
-CREATE USER 'map' IDENTIFIED BY 'map707';
+CREATE USER 'new_user_name' IDENTIFIED BY 'new_user_pwd';
 
-GRANT ALL ON marker_data.* TO 'map';
+GRANT ALL ON marker_data.* TO 'new_user_name';
