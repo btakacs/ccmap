@@ -1,0 +1,37 @@
+/*Database Set-up
+The first thing to do is set up a local database to hold the information we want from the Democrasoft database
+There are 10 columns: id (primary key), site id, date created, school name, zip_code, latitude, longitude, site name, published url, and geocode state
+Geocode State has 4 different values: 'nullzip' - for sites that don't specify a zip_code
+ 'waiting' - for sites with zip codes waiting to be geocoded
+  'success' - for sites with successful geocodes
+  'failed' for sites where the geocode process failed
+The script also creates a user/password with access to the DB
+*/
+
+DROP USER map;
+
+DROP DATABASE marker_data;
+
+CREATE DATABASE marker_data;
+
+CONNECT marker_data;
+
+CREATE TABLE profiles
+     (
+     P_Id bigint(20) NOT NULL AUTO_INCREMENT,
+     site_id bigint(20),
+     created_dtm datetime,
+     school_name varchar(225),
+     zip_code varchar(50),
+     lat float(10,6),
+     lng float(10,6),
+     site_name varchar(225),
+     publish_url varchar(225),
+     geo_state varchar(12),
+     PRIMARY KEY (P_Id),
+     UNIQUE (site_id)
+     );
+
+CREATE USER 'map' IDENTIFIED BY 'map707';
+
+GRANT ALL ON marker_data.* TO 'map';
