@@ -1,5 +1,5 @@
 /*Database Set-up
-The first thing to do is set up a local database to hold the information we want from the Democrasoft database
+The first thing to do is set up a local database to hold the information we want from the target database
 There are 10 columns: id (primary key), site id, date created, school name, zip_code, latitude, longitude, site name, published url, and geocode state
 Geocode State has 4 different values: 'nullzip' - for sites that don't specify a zip_code
  'waiting' - for sites with zip codes waiting to be geocoded
